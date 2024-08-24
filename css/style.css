@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+
+    /* Font */
+    --main-font: "Red Hat Text", sans-serif;
+
+    /* Font size */
+
+    --font-size: 16px;
+
+    /* Colors */
+    --red: hsl(14, 86%, 42%);
+    --green: hsl(159, 69%, 38%);
+    --rose50: hsl(20, 50%, 98%);
+    --rose100: hsl(13, 31%, 94%);
+    --rose300: hsl(14, 25%, 72%);
+    --rose400: hsl(7, 20%, 60%);
+    --rose500: hsl(12, 20%, 44%);
+    --rose900: hsl(14, 65%, 9%);
+
+}
+
+body {
+    font-family: var(--main-font);
+    font-size: var(--font-size);
+    background-color: var(--rose50);
+}
+
+button {
+    font-family: var(--main-font);
+    font-size: var(--font-size);
+    background-color: #fff;
+    border: 2px solid var(--rose300);
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+
+button > img {
+    float: left;
+}
+
+/* Grid wrapper */
+.grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+}
+.grid-item .dessert-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+}
