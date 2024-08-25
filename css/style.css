@@ -42,18 +42,55 @@ button {
     border-radius: 50px;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 button > img {
     float: left;
 }
 
+section {
+    padding: 3em 5em;
+}
+
+h1 {
+    color: var(--rose900);
+}
 /* Grid wrapper */
 .grid-wrapper {
+    margin-top: 1em;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
+    width: 60%;
+    gap: 20px;
+}
+.grid-item .img-btn-holder {
+    position: relative;
+    margin-bottom: 1.5em;
+}
+.grid-item .img-btn-holder button {
+    position: absolute;
+    bottom: -15px;
+    width: auto;
+    height: auto;
+    left: 45%;
+    transform: translateX(-50%);
 }
 .grid-item .dessert-image {
     width: 100%;
     max-width: 300px;
     height: auto;
+    border-radius: 5%;
+}
+.grid-item .desc .dessert-category {
+    color: var(--rose400);
+}
+.grid-item .desc .dessert-name {
+    color: var(--rose900);
+    font-size: 1em;
+}
+.grid-item .desc .price {
+    color: var(--red);
 }
