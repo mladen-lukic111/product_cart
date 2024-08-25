@@ -5,6 +5,13 @@ let cart = [];
 
 addToCartBtns.forEach( button => {
     button.addEventListener('click', () => {
+
+        button.classList.add('checked-button');
+
+        button.innerHTML = `<img src="../assets/images/icon-decrement-quantity.svg" alt="" class="decrement"/>
+                            <span class="quantity">1</span>
+                            <img src="../assets/images/icon-increment-quantity.svg" alt="" class="decrement"/>`;
+                            
         const gridItem = button.closest('.grid-item');
         const dessertName = gridItem.querySelector('.dessert-name').textContent;
 
@@ -35,4 +42,11 @@ function updateCartUI() {
         cartItems.appendChild(p);
     });
 
+}
+
+// Function for decrement
+
+function decrement() {
+    let decrease = document.querySelector('.decrement');
+    decrease.addEventListener()
 }

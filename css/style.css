@@ -50,6 +50,16 @@ button.add-to-cart > img {
     float: left;
 }
 
+button.checked-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background-color: var(--red);
+    border-color: var(--red);
+    color: #fff;
+}
+
 h1 {
     color: var(--rose900);
 }
