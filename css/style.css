@@ -126,8 +126,37 @@ section {
 .order-section .cart-wrapper h2 {
     color: var(--red);
     text-align: left;
+    margin-bottom: 20px;
 }
 .order-section .cart-wrapper p {
     color: var(--rose500);
-    font-weight: 600;
+    font-weight: 700;
+}
+
+/* Cart UI when items are added */
+.cart-wrapper .added-items {
+    text-align: left;
+}
+.cart-wrapper .added-items .order-item {
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--rose300);
+}
+.cart-wrapper .added-items .order-item p {
+    margin-bottom: 5px;
+}
+.cart-wrapper .added-items .order-item > span {
+    margin-right: 5px;
+}
+.cart-wrapper .added-items .quantity {
+    color: var(--red);
+    font-weight: 700;
+}
+.cart-wrapper .added-items .item-price {
+    font-weight: 400;
+    color: var(--rose500);
+}
+.cart-wrapper .added-items .sum {
+    color: var(--rose500);
+    font-weight: 700;
 }
