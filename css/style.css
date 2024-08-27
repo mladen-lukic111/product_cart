@@ -160,3 +160,13 @@ section {
     color: var(--rose500);
     font-weight: 700;
 }
+.cart-wrapper .added-items .remove {
+    margin-left: 200px;
+}
+.cart-wrapper .added-items .remove img {
+    border-radius: 50%;
+    border: 2px solid var(--rose300);
+}
+.cart-wrapper .added-items .remove img:hover {
+    cursor: pointer;
+}

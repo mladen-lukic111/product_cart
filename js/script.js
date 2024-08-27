@@ -62,7 +62,8 @@ function addItem() {
                            <p>${item.name}</p>
                            <span class="quantity">${item.quantity}x</span> 
                            <span class="item-price">@${item.price}</span>
-                            <span class="sum">${sum}</span>
+                           <span class="sum">$${sum}</span>
+                           <span class="remove"><img src="./assets/images/icon-remove-item.svg"</span>
                       `;
        cartAddedItems.append(div);
 
