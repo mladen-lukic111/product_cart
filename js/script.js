@@ -67,7 +67,6 @@ function addItem() {
                       `;
        cartAddedItems.append(div);
 
-       console.log(`Added ${item.name} to the cart!`);
 
    });
 }
