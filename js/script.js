@@ -32,6 +32,9 @@ addToCartBtns.forEach( button => {
          // Writing values into the Cart
          addItem();
 
+         //Removing item
+         removeItem();
+
     });
 
 });
@@ -71,4 +74,15 @@ function addItem() {
    });
 }
 
+// Function that removes item from the Cart
+function removeItem() {
+    const xButtons = document.querySelectorAll('.remove');
+    xButtons.forEach(xBtn => {
+        xBtn.addEventListener("click", () => {
+            let newCart = cart.filter(cartItem => cart.name === cartItem.name);
+            cart = newCart;
+            // ? Fix removing everything
+        });
+    });
+};
 
