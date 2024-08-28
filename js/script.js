@@ -31,10 +31,6 @@ addToCartBtns.forEach( button => {
 
          // Writing values into the Cart
          addItem();
-
-         //Removing item
-         removeItem();
-
     });
 
 });
@@ -70,6 +66,9 @@ function addItem() {
                       `;
        cartAddedItems.append(div);
 
+       //Removing item
+       removeItem();
+
 
    });
 }
@@ -78,10 +77,10 @@ function addItem() {
 function removeItem() {
     const xButtons = document.querySelectorAll('.remove');
     xButtons.forEach(xBtn => {
-        xBtn.addEventListener("click", () => {
-            let newCart = cart.filter(cartItem => cart.name === cartItem.name);
-            cart = newCart;
-            // ? Fix removing everything
+        xBtn.addEventListener("click", (e) => {
+            let itemName = e.target.closest('.order-item').querySelector('p').textContent;
+            cart = cart.filter(cartItem => cartItem.name !== itemName);
+            addItem();
         });
     });
 };
