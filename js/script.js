@@ -31,6 +31,38 @@ addToCartBtns.forEach( button => {
 
          // Writing values into the Cart
          addItem();
+
+         // Increment and decrement item
+         let decrementBtn = button.querySelector('.decrement');
+         let incrementBtn = button.querySelector('.increment');
+
+         decrementBtn.addEventListener('click', (e)=> {
+            e.stopImmediatePropagation();
+
+            let itemIndex = cart.findIndex(item =>item.name === dessertName);
+            if(itemIndex !== -1) {
+                if(cart[itemIndex].quantity > 1) { cart[itemIndex].quantity--; }
+                else {
+                    cart.splice(itemIndex, 1);
+                    button.classList.remove('checked-button');
+                    button.innerHTML = "Add to cart";
+                }
+                addItem();
+                //console.log(cart);
+            }
+         });
+
+         incrementBtn.addEventListener('click', (e)=> {
+            e.stopImmediatePropagation();
+
+            let itemIndex = cart.findIndex(item =>item.name === dessertName);
+            if(itemIndex !== -1) {
+                cart[itemIndex].quantity++;
+                addItem();
+                //console.log(cart);
+            }
+         });
+
     });
 
 });
@@ -46,6 +78,8 @@ function addItem() {
 
    let cartAddedItems = cartHolder.querySelector('.added-items');
 
+   let orderSum = 0;
+
    cart.forEach(item => {
        let div = document.createElement('div');
 
@@ -56,6 +90,9 @@ function addItem() {
        numberItemPrice = parseFloat(nItemPrice).toFixed(2);
 
        sum = item.quantity * numberItemPrice;
+
+       orderSum += sum;
+    // console.log(orderSum);
 
        div.innerHTML += `
                            <p>${item.name}</p>
@@ -69,8 +106,23 @@ function addItem() {
        //Removing item
        removeItem();
 
-
    });
+
+   // Total sum
+   let totalSum = document.createElement('p');
+   totalSum.classList.add('total-sum');
+   totalSum.innerHTML += `Order Total: <span>$${orderSum.toFixed(2)}</span>`;
+
+   cartAddedItems.append(totalSum);
+
+   let confirmButton = document.createElement('button');
+   confirmButton.classList.add('confirm-btn');
+   confirmButton.innerText = "Confirm Order";
+   cartAddedItems.append(confirmButton); 
+
+   modalShow();
+
+
 }
 
 // Function that removes item from the Cart
@@ -83,5 +135,36 @@ function removeItem() {
             addItem();
         });
     });
+};
+
+function modalShow() {
+    let modalBtn = document.querySelector('.confirm-btn');
+
+    let modalWrapper = document.querySelector('.modal-wrapper');
+
+    let modalContent = modalWrapper.querySelector('.modal-content');
+
+    modalBtn.addEventListener('click', () => {
+
+        modalWrapper.style.display = 'block';
+
+        cart.forEach(item => {
+            let nItemPrice = item.price.replace("$", "");
+            let numberItemPrice = parseFloat(nItemPrice).toFixed(2);
+            let sum = item.quantity * numberItemPrice;
+
+            modalContent.innerHTML += `<p class="modal-p">${item.name}</p>
+                                        <span class="quantity">${item.quantity}x</span> 
+                                        <span class="item-price">@${item.price}</span>
+                                        <span class="sum">$${sum.toFixed(2)}</span>`;
+        });
+
+        let closeBtn = modalWrapper.querySelector('.close-modal');
+
+        closeBtn.addEventListener("click", () => {
+            modalWrapper.style.display = "none";
+        });
+        
+   });
 };
 

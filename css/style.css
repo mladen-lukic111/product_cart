@@ -133,7 +133,7 @@ section {
     font-weight: 700;
 }
 
-/* Cart UI when items are added */
+/* Cart UI when items are added and Modal look */
 .cart-wrapper .added-items {
     text-align: left;
 }
@@ -142,21 +142,25 @@ section {
     padding-bottom: 15px;
     border-bottom: 1px solid var(--rose300);
 }
-.cart-wrapper .added-items .order-item p {
+.cart-wrapper .added-items .order-item p,
+.modal-wrapper .modal-content p {
     margin-bottom: 5px;
 }
 .cart-wrapper .added-items .order-item > span {
     margin-right: 5px;
 }
-.cart-wrapper .added-items .quantity {
+.cart-wrapper .added-items .quantity,
+.modal-wrapper .modal-content .quantity {
     color: var(--red);
     font-weight: 700;
 }
-.cart-wrapper .added-items .item-price {
+.cart-wrapper .added-items .item-price,
+.modal-wrapper .modal-content .item-price {
     font-weight: 400;
     color: var(--rose500);
 }
-.cart-wrapper .added-items .sum {
+.cart-wrapper .added-items .sum,
+.modal-wrapper .modal-content .sum {
     color: var(--rose500);
     font-weight: 700;
 }
@@ -168,5 +172,57 @@ section {
     border: 2px solid var(--rose300);
 }
 .cart-wrapper .added-items .remove img:hover {
+    cursor: pointer;
+}
+.cart-wrapper .total-sum span {
+    font-size: 1.5em;
+    color: var(--rose900);
+    margin-left: 185px;
+}
+.cart-wrapper .confirm-btn {
+    background-color: var(--red);
+    color: #fff;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    border-radius: 50px;
+    margin-top: 25px;
+    font-size: 1.2em;
+}
+.cart-wrapper .confirm-btn:hover {
+    cursor: pointer;
+}
+.modal-wrapper {
+    padding: 2em;
+    background-color: #fff;
+    border-radius: 10px;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 500px;
+    height: auto;
+    overflow: auto;
+    margin: 250px auto;
+}
+.modal-wrapper .modal-content {
+    background-color: var(--rose100);
+    padding: 2em;
+}
+.modal-wrapper .modal-content span.sum {
+    margin-left: 225px;
+}
+.modal-wrapper .modal-content p.modal-p {
+    font-size: 1.1em;
+    color: var(--rose500);
+    font-weight: 700;
+}
+.modal-wrapper .modal-content h2 img {
+    margin-left: 120px;
+    width: 30px;
+    filter: invert(1);
+}
+.modal-wrapper .modal-content h2 img:hover {
     cursor: pointer;
 }
